@@ -61,9 +61,26 @@
     $brut = json_decode($string, true);
     $top = $brut["feed"]["entry"]; # liste de films
     
-    echo '<ol>';
+    // Top 10 des films.
+    echo '<ol>- Top 10 des films -';
     for ($x = 0; $x < 10; $x++) {
         echo '<li>' . $top[$x]['im:name']['label'] . '</li>';
     }
     echo '</ol>';
+
+    // Classement du film "Gravity".
+    for ($x = 0; $x < count($top); $x++) {
+        if ($top[$x]['im:name']['label'] == 'Gravity') {
+            echo '<p>Gravity est le <b>' . ($x+1) . 'ème</b> film de la liste.</p>';
+        }
+    }
+
+    // Auteur du film "The LEGO Movie".
+    echo '<p>Réalisateur de "The LEGO Movie" : <b>' . $top[37]['im:artist']['label'] . '</b> .</p>';
+
+    // Nombre de films sorti avant 2000.
+    
+    
 ?>
+
+
