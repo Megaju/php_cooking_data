@@ -10,11 +10,11 @@
         echo '<p>Il y a <b>' . count($dico) . ' mots</b> dans ce dictionnaire.</p>';
     }
     
-    // initialisation de 2 var pour la suite...
-    $nbWord = 0;
+    // longueur du tableau...
     $dicoLength = count($dico);
 
     // nombre de mots à exactement 15 caractères dans le dictionnaire.
+    $nbWord = 0;
     for ($x = 0; $x < $dicoLength; $x++) {
         if (strlen($dico[$x]) == 15) {
             $nbWord++;
@@ -27,8 +27,9 @@
     }
 
     // nombre de mots contenant la lettre "w".
+    $nbWord = 0;
     for ($x = 0; $x < $dicoLength; $x++) {
-        if (substr_count($dico[$x],"w")) {
+        if (substr_count($dico[$x], 'w')) {
             $nbWord++;
         }
     }
@@ -39,9 +40,10 @@
     }
 
     // nombre de mots finissant par la lettre "q".
+    $nbWord = 0;
     for ($x = 0; $x < $dicoLength; $x++) {
         $temp = strpos(strrev($dico[$x]), 'q');
-        if ($temp == 0) {
+        if ($temp === 0) {
             $nbWord++;
         }
     }
