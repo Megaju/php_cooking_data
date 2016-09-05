@@ -22,9 +22,9 @@
         }
     }
     if ($nbWord <= 1) {
-        echo '<p>Il y a <b>' . $nbWord . ' mot</b> d\'exactement <b>15 caractères</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mot</b> <i>d\'exactement</i> <b>15 caractères</b> dans ce dictionnaire.</p>';
     } else {
-        echo '<p>Il y a <b>' . $nbWord . ' mots</b> d\'exactement <b>15 caractères</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mots</b> <i>d\'exactement</i> <b>15 caractères</b> dans ce dictionnaire.</p>';
     }
 
     // nombre de mots contenant la lettre "w".
@@ -35,9 +35,9 @@
         }
     }
     if ($nbWord <= 1) {
-        echo '<p>Il y a <b>' . $nbWord . ' mot</b> contenant au moins un <b>"W"</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mot</b> contenant <i>au moins</i> un <b>"W"</b> dans ce dictionnaire.</p>';
     } else {
-        echo '<p>Il y a <b>' . $nbWord . ' mots</b> contenant au moins un <b>"W"</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mots</b> contenant <i>au moins</i> un <b>"W"</b> dans ce dictionnaire.</p>';
     }
 
     // nombre de mots finissant par la lettre "q".
@@ -49,9 +49,9 @@
         }
     }
     if ($nbWord <= 1) {
-        echo '<p>Il y a <b>' . $nbWord . ' mot</b> finissant par la lettre <b>"Q"</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mot</b> <i>finissant</i> par la lettre <b>"Q"</b> dans ce dictionnaire.</p>';
     } else {
-        echo '<p>Il y a <b>' . $nbWord . ' mots</b> finissant par la lettre <b>"Q"</b> dans ce dictionnaire.</p>';
+        echo '<p>Il y a <b>' . $nbWord . ' mots</b> <i>finissant</i> par la lettre <b>"Q"</b> dans ce dictionnaire.</p>';
     }
 ?>
 
@@ -76,11 +76,20 @@
     }
 
     // Auteur du film "The LEGO Movie".
-    echo '<p>Réalisateur de "The LEGO Movie" : <b>' . $top[37]['im:artist']['label'] . '</b> .</p>';
-
-    // Nombre de films sorti avant 2000.
+    for ($x = 0; $x < count($top); $x++) {
+        if ($top[$x]['im:name']['label'] == 'The LEGO Movie') {
+            echo '<p><i>Réalisateur</i> de "' . $top[$x]['im:name']['label'] . '" : <b>' . $top[$x]['im:artist']['label'] . '</b> .</p>';
+        }
+    }
     
-    
+    // Nombre de films sorti avant 2000.  [im:releaseDate]
+    $nbFilm = 0;
+    for ($x = 0; $x < count($top); $x++) {
+        if ($top[$x]['im:releaseDate']['label'] < 2000) {
+            $nbFilm++;
+        }
+    }
+    echo '<p>Il y a dans cette liste <b>' . $nbFilm . ' films</b> qui sont sorti <i>avant</i> <b>l\'année 2000.</b></p>';
 ?>
 
 
