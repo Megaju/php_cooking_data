@@ -11,13 +11,24 @@ h1 {
     border-bottom: 5px solid #333;
 }
 
-p {
+h2 {
+    margin: 50px auto -50px auto;
+    color: #444;
+}
+
+p, ol, li {
     width: 60%;
     margin: 50px auto;
     padding: 25px 0;
     border: 3px solid #111;
     background-color: #222;
     color: #eee;
+}
+
+li {
+    width: 90%;
+    margin: 5px auto;
+    background-color: #444;
 }
 
 b {

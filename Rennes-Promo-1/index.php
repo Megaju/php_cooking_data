@@ -1,4 +1,5 @@
 <?php include('head.php'); ?>
+<h2>- Partie 1 : Dictionnaire -</h2>
 <?php
     $string = file_get_contents("../dictionnaire.txt", FILE_USE_INCLUDE_PATH); 
     $dico = explode("\n", $string);
@@ -52,4 +53,17 @@
     } else {
         echo '<p>Il y a <b>' . $nbWord . ' mots</b> finissant par la lettre <b>"Q"</b> dans ce dictionnaire.</p>';
     }
+?>
+
+<h2>- Partie 2 : Liste de films -</h2>
+<?php 
+    $string = file_get_contents("../films.json", FILE_USE_INCLUDE_PATH);
+    $brut = json_decode($string, true);
+    $top = $brut["feed"]["entry"]; # liste de films
+    
+    echo '<ol>';     
+    foreach ($top as $element) {
+        echo '<li>' . $element['im:name']['label'] . '</li>';
+    }
+    echo '</ol>';
 ?>
