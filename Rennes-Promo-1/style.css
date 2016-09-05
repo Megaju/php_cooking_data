@@ -28,11 +28,24 @@ p, ol, li {
 li {
     width: 90%;
     margin: 5px auto;
-    background-color: #444;
+    background-color: #544;
+}
+
+li:nth-child(odd) {
+    background-color: #644;
 }
 
 b {
     padding: 5px;
     background-color: firebrick;
     border: 1px solid #f21;
+}
+
+#img-header {
+    width: 512px;
+    height: 345px;
+    background-image: url(../cooking-time.jpg);
+    background-size: cover;
+    margin: 0 auto;
+    border: 1px solid #333;
 }

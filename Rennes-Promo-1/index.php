@@ -61,9 +61,9 @@
     $brut = json_decode($string, true);
     $top = $brut["feed"]["entry"]; # liste de films
     
-    echo '<ol>';     
-    foreach ($top as $element) {
-        echo '<li>' . $element['im:name']['label'] . '</li>';
+    echo '<ol>';
+    for ($x = 0; $x < 10; $x++) {
+        echo '<li>' . $top[$x]['im:name']['label'] . '</li>';
     }
     echo '</ol>';
 ?>
