@@ -90,6 +90,30 @@
         }
     }
     echo '<p>Il y a dans cette liste <b>' . $nbFilm . ' films</b> qui sont sorti <i>avant</i> <b>l\'année 2000.</b></p>';
+
+    // Film le plus vieux.
+    $date = $top[0]['im:releaseDate']['label'];
+    for ($x = 1; $x < count($top); $x++) {
+        if ($date > $top[$x]['im:releaseDate']['label']) {
+            $date = $top[$x]['im:releaseDate']['label'];
+            $name = $top[$x]['im:name']['label'];
+        } 
+    }
+    echo '<p>Le film <i>le plus jeune</i> de la liste est <b>' . $name . '</b> .</p>';
+    
+    // Film le plus récent.
+    $date = $top[0]['im:releaseDate']['label'];
+    for ($x = 1; $x < count($top); $x++) {
+        if ($date < $top[$x]['im:releaseDate']['label']) {
+            $date = $top[$x]['im:releaseDate']['label'];
+            $name = $top[$x]['im:name']['label'];
+        } 
+    }
+    echo '<p>Le film <i>le plus vieux</i> de la liste est <b>' . $name . '</b> .</p>';
+
+    // Catégories de film la plus représentée.
+    
 ?>
 
 
+<?php include('footer.php'); ?>
