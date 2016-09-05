@@ -1,0 +1,25 @@
+* {
+    font-family: 'Prompt', sans-serif;
+    text-align: center;
+    background-color: #ccc;
+}
+
+h1 {
+    margin: 0;
+    color: #333;
+}
+
+p {
+    width: 60%;
+    margin: 50px auto;
+    padding: 25px 0;
+    border: 3px solid #111;
+    background-color: #222;
+    color: #eee;
+}
+
+b {
+    padding: 5px;
+    background-color: firebrick;
+    border: 1px solid #f21;
+}
