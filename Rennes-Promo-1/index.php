@@ -82,7 +82,7 @@
         }
     }
     
-    // Nombre de films sorti avant 2000.  [im:releaseDate]
+    // Nombre de films sorti avant 2000.
     $nbFilm = 0;
     for ($x = 0; $x < count($top); $x++) {
         if ($top[$x]['im:releaseDate']['label'] < 2000) {
@@ -112,7 +112,16 @@
     echo '<p>Le film <i>le plus vieux</i> de la liste est <b>' . $name . '</b> .</p>';
 
     // Catégories de film la plus représentée.
-    
+    echo '<p>' . $top[0]['category']['attributes']['term'] . '</p>';
+
+    $categoryA = 0;
+    for ($x = 0; $x < count($top); $x++) {
+        if ($top[$x]['category']['attributes']['term'] == 'Sci-Fi & Fantasy') {
+            $categoryA++;
+            $categoryName = $top[$x]['category']['attributes']['term'];
+        } 
+    }
+    echo '<p>La catégorie <i>la plus représentée</i> de la liste est <b>' . $categoryName . '</b> .</p>';
 ?>
 
 
