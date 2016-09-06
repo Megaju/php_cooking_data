@@ -132,6 +132,12 @@
     $artistTab = array_search(max($artistTab), $artistTab);
 
     echo '<p>Le réalisteur <i>le plus présent</i> dans la liste est <b>' . $artistTab . '</b> .</p>';
+
+    // Prix total du TOP10.
+    for ($x = 0; $x < 10; $x++) {
+        $totalPrice = $totalPrice + ($top[$x]['im:price']['attributes']['amount']);
+    }
+    echo '<p>Le prix <i>total</i> du <i>TOP10</i> est de <b>' . $totalPrice . '$</b> .</p>';
 ?>
 
 
