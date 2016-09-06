@@ -1,3 +1,3 @@
 <footer>
-    <p>Exercice cooking date pour php.</p>
+    <p>Exercice <i>cooking data</i> pour php.</p>
 </footer>

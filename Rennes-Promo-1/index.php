@@ -138,6 +138,11 @@
         $totalPrice = $totalPrice + ($top[$x]['im:price']['attributes']['amount']);
     }
     echo '<p>Le prix <i>total</i> du <i>TOP10</i> est de <b>' . $totalPrice . '$</b> .</p>';
+
+    // Mois avec le plus sorti au cinéma.
+    $mounth =  $top[0]['im:releaseDate']['attributes']['label'];
+    $mounth = explode(" ", $top[0]['im:releaseDate']['attributes']['label']);
+    echo $mounth[0];
 ?>
 
 
