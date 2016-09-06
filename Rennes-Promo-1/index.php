@@ -110,18 +110,28 @@
         } 
     }
     echo '<p>Le film <i>le plus vieux</i> de la liste est <b>' . $name . '</b> .</p>';
-
+    
     // Catégories de film la plus représentée.
-    echo '<p>' . $top[0]['category']['attributes']['term'] . '</p>';
-
-    $categoryA = 0;
+    $categoryTab = [];
     for ($x = 0; $x < count($top); $x++) {
-        if ($top[$x]['category']['attributes']['term'] == 'Sci-Fi & Fantasy') {
-            $categoryA++;
-            $categoryName = $top[$x]['category']['attributes']['term'];
-        } 
+        $value = $top[$x]['category']['attributes']['term'];
+        array_push($categoryTab, $value);
     }
-    echo '<p>La catégorie <i>la plus représentée</i> de la liste est <b>' . $categoryName . '</b> .</p>';
+    $categoryTab = array_count_values($categoryTab);
+    $categoryTab = array_search(max($categoryTab), $categoryTab);
+
+    echo '<p>La catégorie <i>la plus représentée</i> dans la liste est <b>' . $categoryTab . '</b> .</p>';
+
+    // Réalisateur le plus présent.
+    $artistTab = [];
+    for ($x = 0; $x < count($top); $x++) {
+        $value = $top[$x]['im:artist']['label'];
+        array_push($artistTab, $value);
+    }
+    $artistTab = array_count_values($artistTab);
+    $artistTab = array_search(max($artistTab), $artistTab);
+
+    echo '<p>Le réalisteur <i>le plus présent</i> dans la liste est <b>' . $artistTab . '</b> .</p>';
 ?>
 
 
