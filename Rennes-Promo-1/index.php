@@ -16,7 +16,7 @@
 
     // nombre de mots à exactement 15 caractères dans le dictionnaire.
     $nbWord = 0;
-    for ($x = 0; $x < $dicoLength; $x++) {
+    for ($x = 0; $x < count($disco); $x++) {
         if (strlen($dico[$x]) == 15) {
             $nbWord++;
         }
@@ -140,10 +140,6 @@
     echo '<p>Le prix <i>total</i> du <i>TOP10</i> est de <b>' . $totalPrice . '$</b> .</p>';
 
     // Mois avec le plus sorti au cinéma.
-    /*$mounth =  $top[0]['im:releaseDate']['attributes']['label'];
-    $mounth = explode(" ", $top[0]['im:releaseDate']['attributes']['label']);
-    echo $mounth[0];*/
-
     $mounthTab = [];
     for ($x = 0; $x < count($top); $x++) {
         $value = $top[$x]['im:releaseDate']['attributes']['label'];
@@ -156,6 +152,29 @@
     $mounthTab = $mounthTab[0];
 
     echo '<p>Le <i>mois</i> qui a connus <i>le plus de sorti</i> est <b>' . $mounthTab . '</b> .';
+
+    // 10 meilleurs films à voir avec un p'tit budget.
+    echo '<p>Alors c\'est <i>très simple</i>, tu <b>télécharge</b> <i>illégalement</i> <b>tout</b> les films qui te plaisent. :) :) :)</p>';
+
+    $priceTab = [];
+    for ($x = 0; $x < count($top); $x++) {
+        $value = $top[$x]['im:price']['attributes']['amount'];
+        $name = $top[$x]['im:name']['label'];
+        $priceTab[$name] = $value; 
+    }
+    
+    asort($priceTab);
+    $priceTab = array_slice($priceTab, 0, 10);
+    
+    $priceTab = array_keys($priceTab);
+    
+    
+    echo '<ol>TOP 10 des meilleurs films pour les petits budgets';
+    for ($x = 0; $x < 10; $x++) {
+        echo '<li>' . $priceTab[$x] . '</li>';
+    }
+    echo '</ol>';
+    
 ?>
 
 
