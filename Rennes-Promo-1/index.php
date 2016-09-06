@@ -140,9 +140,22 @@
     echo '<p>Le prix <i>total</i> du <i>TOP10</i> est de <b>' . $totalPrice . '$</b> .</p>';
 
     // Mois avec le plus sorti au cinéma.
-    $mounth =  $top[0]['im:releaseDate']['attributes']['label'];
+    /*$mounth =  $top[0]['im:releaseDate']['attributes']['label'];
     $mounth = explode(" ", $top[0]['im:releaseDate']['attributes']['label']);
-    echo $mounth[0];
+    echo $mounth[0];*/
+
+    $mounthTab = [];
+    for ($x = 0; $x < count($top); $x++) {
+        $value = $top[$x]['im:releaseDate']['attributes']['label'];
+        array_push($mounthTab, $value);
+    }
+    $mounthTab = array_count_values($mounthTab);
+    $mounthTab = array_search(max($mounthTab), $mounthTab);
+
+    $mounthTab = explode(" ", $mounthTab);
+    $mounthTab = $mounthTab[0];
+
+    echo '<p>Le <i>mois</i> qui a connus <i>le plus de sorti</i> est <b>' . $mounthTab . '</b> .';
 ?>
 
 
